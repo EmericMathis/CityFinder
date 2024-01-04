@@ -21,8 +21,8 @@ const DisplayList = ({ citiesData, isLoading, isFormatted }) => {
                                         : isFormatted && city.population > 999999 ? (city.population / 1000000).toFixed(0) + 'M'
                                         : city.population} */}
 
-                                        {isFormatted && city.population > 999999 ? (city.population / 1000000).toFixed(0) + 'M'
-                                        : isFormatted && city.population > 999 ? (city.population / 1000).toFixed(0) + 'K'
+                                        {isFormatted && city.population > 999999 ? (city.population / 1000000).toFixed(2).replace('.', ',') + 'M'
+                                        : isFormatted && city.population > 999 ? (city.population / 1000).toFixed(2).replace('.', ',') + 'K'
                                         : city.population}
                                         </div>
                                 </div>
