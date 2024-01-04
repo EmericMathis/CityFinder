@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../assets/css/reset.css'
+import './index.scss'
 import Header from '../Header'
 import SearchForm from '../SearchForm'
 import FormatSelect from '../FormatSelect'

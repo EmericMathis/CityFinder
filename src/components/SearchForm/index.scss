@@ -1,0 +1,19 @@
+.searchform {
+padding-bottom: 10px;
+display: flex;
+justify-content: space-between;
+    legend {
+        font-size: 10;
+        font-weight: 600;
+        padding: 5px 0 5px 0;
+    }
+    input, button {
+        width: 60%;
+        border-radius: 0%;
+        border: 1px solid #ccc;
+        padding: 10px 10px 10px 10px;
+    }
+    button {
+        width: 35%;
+    }
+}
