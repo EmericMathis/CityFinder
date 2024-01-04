@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 10px 15px;
+
+    h1{
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        width: 100%;
+    }
+
+    hr {
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
