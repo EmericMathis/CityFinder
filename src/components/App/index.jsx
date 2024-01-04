@@ -10,6 +10,7 @@ const App = () => {
 const [data, setData] = useState([]);
 const [search, setSearch] = useState('');
 const [isLoading, setIsLoading] = useState(false);
+const [isFormatted, setIsFormatted] = useState(false);
 
 useEffect (() => {
     setIsLoading(true);
@@ -24,6 +25,10 @@ useEffect (() => {
     setIsLoading(false);
 },[data])
 
+useEffect (() => {
+    console.log(isFormatted);;
+},[isFormatted])
+
     return (
     <>
     <Header />
@@ -31,10 +36,14 @@ useEffect (() => {
         <SearchForm 
         setSearch={setSearch}
         />
-        <FormatSelect />
+        <FormatSelect 
+        setIsFormatted={setIsFormatted}
+        isFormatted={isFormatted}
+        />
         <DisplayList 
         citiesData={data} //liste des communes pour la recherche
         isLoading={isLoading}
+        isFormatted={isFormatted}
         />
     </main>
     </>

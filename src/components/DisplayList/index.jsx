@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 
-const DisplayList = ({ citiesData, isLoading }) => {
+const DisplayList = ({ citiesData, isLoading, isFormatted }) => {
     return (
         <>
             {citiesData.length > 0 && isLoading === false ?
@@ -16,7 +16,15 @@ const DisplayList = ({ citiesData, isLoading }) => {
                                     code postal : <div className="numero">{city.codesPostaux[0]}</div>
                                 </div>
                                 <div className="population">
-                                    population : <div className="numero">{city.population}</div>
+                                    population : <div className="numero">
+                                        {/* {isFormatted && city.population > 999 && city.population < 1000000 ? (city.population / 1000).toFixed(0) + 'K' 
+                                        : isFormatted && city.population > 999999 ? (city.population / 1000000).toFixed(0) + 'M'
+                                        : city.population} */}
+
+                                        {isFormatted && city.population > 999999 ? (city.population / 1000000).toFixed(0) + 'M'
+                                        : isFormatted && city.population > 999 ? (city.population / 1000).toFixed(0) + 'K'
+                                        : city.population}
+                                        </div>
                                 </div>
                             </li>
                         ))}

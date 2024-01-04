@@ -1,11 +1,16 @@
 import React from 'react';
 import './index.scss';
 
-const FormatSelect = () => {
+const FormatSelect = ({setIsFormatted, isFormatted}) => {
+
+    const handleClick = () => {
+        setIsFormatted(!isFormatted)
+    }
+
     return (
         <div className='formatselect-container'>
             <p>Résultats</p>
-            <button>Changer le format</button>
+            <button onClick={handleClick}>Changer le format</button>
         </div>
     );
 };
