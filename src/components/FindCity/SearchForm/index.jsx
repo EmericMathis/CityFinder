@@ -22,11 +22,15 @@ const SearchForm = ({setSearchValue, searchType, setSearchType}) => {
             </select>
 
             <fieldset className='searchform'>
-                    <legend>NOM DE LA COMMUNE</legend>
+                    <legend>
+                    {searchType === "codePostal" && "Code postal complet de la commune"}
+                    {searchType === "nom" && "nom de la commune"}
+                    </legend>
                     <input 
                     id='searchInput'
                     type="text" 
-                    placeholder='Troyes, Bar-le-Duc, Paris, ..'
+                    placeholder={searchType === "nom" ? 'Troyes, Bar-le-Duc, Paris, ...'
+                    : searchType === "codePostal" ? "75000, 13200, ..." : null}
                     />
                     <button type='submit'>Lancer la recherche</button>
             </fieldset>
