@@ -5,19 +5,22 @@ import FormatSelect from './FormatSelect'
 import DisplayList from './DisplayList'
 
 const FindCity = () => {
+
 const [data, setData] = useState([]);
-const [search, setSearch] = useState('');
+
+const [searchValue, setSearchValue] = useState('');
+const [searchType, setSearchType] = useState('nom'); // nom = commune, codePostal = code postal
+
 const [isLoading, setIsLoading] = useState(false);
 const [isFormatted, setIsFormatted] = useState(false);
 
 useEffect (() => {
     setIsLoading(true);
-    fetch(`https://geo.api.gouv.fr/communes?nom=${search}`)
+    fetch(`https://geo.api.gouv.fr/communes?${searchType}=${searchValue}`)
     .then(response => response.json())
-    .then((data) => {setData(data)
-    })
+    .then((data) => {setData(data)})
     .catch((error) => console.log("erreur fetch", error))
-},[search])
+},[searchValue])
 
 useEffect (() => {
     setIsLoading(false);
@@ -28,7 +31,9 @@ useEffect (() => {
     <Header />
     <main>
         <SearchForm 
-        setSearch={setSearch}
+        setSearchValue={setSearchValue}
+        setSearchType={setSearchType}
+        searchType={searchType}
         />
         <FormatSelect 
         setIsFormatted={setIsFormatted}

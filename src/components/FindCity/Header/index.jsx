@@ -5,6 +5,7 @@ const Header = () => {
         <header>
     <h1>Recherche par nom de commune</h1>
     <hr/>
+    
         </header>
     );
 };
